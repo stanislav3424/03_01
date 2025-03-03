@@ -60,7 +60,7 @@ class Calculator
     }
 };
 
-bool print(int localIndex, Calculator &localCalc)
+bool printInput(int localIndex, Calculator &localCalc)
 {
     std::cout << "¬ведите num" << localIndex << ": ";
     double localNum{};
@@ -82,21 +82,26 @@ bool print(int localIndex, Calculator &localCalc)
     return false;
 }
 
+void printResult(Calculator &localCalc)
+{
+    std::cout << "num1 + num2 = " << localCalc.add() << std::endl;
+    std::cout << "num1 - num2 = " << localCalc.subtract_1_2() << std::endl;
+    std::cout << "num2 - num1 = " << localCalc.subtract_2_1() << std::endl;
+    std::cout << "num1 * num2 = " << localCalc.multiply() << std::endl;
+    std::cout << "num1 / num2 = " << localCalc.divide_1_2() << std::endl;
+    std::cout << "num2 / num1 = " << localCalc.divide_2_1() << std::endl;
+}
+
 void execute()
 {
     Calculator Calc;
-    while (print(1, Calc))
+    while (printInput(1, Calc))
     {
     }
-    while (print(2, Calc))
+    while (printInput(2, Calc))
     {
     }
-    std::cout << "num1 + num2 = " << Calc.add() << std::endl;
-    std::cout << "num1 - num2 = " << Calc.subtract_1_2() << std::endl;
-    std::cout << "num2 - num1 = " << Calc.subtract_2_1() << std::endl;
-    std::cout << "num1 * num2 = " << Calc.multiply() << std::endl;
-    std::cout << "num1 / num2 = " << Calc.divide_1_2() << std::endl;
-    std::cout << "num2 / num1 = " << Calc.divide_2_1() << std::endl;
+    printResult(Calc);
 }
 
 int main()
